@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Note</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <header class="center">
+        
+        <nav>
+            <a class="navb" href="/">Home</a>
+            <a class="navb" href="/createNote">Create Note</a>
+            <a class="navb" href="/notes">Notes</a>
+        </nav>
+        <h1>
+            Create New Note
+        </h1>
+    </header>
+    <main class="center">
+        <form class="center" action="/createnote" method="post">
+            <label for="title">Title: </label>
+            <input type="text" name="title" placeholder="Title..." id="title">
+            <br>
+            <label for="content">Content: </label>
+            <textarea cols="30" rows="10" name="contents" id="content" placeholder="Note Content..." cols="30" rows="10"></textarea>
+            <button type="submit">Create Note</button>
+        </form>
+    </main>
+</body>
+</html>

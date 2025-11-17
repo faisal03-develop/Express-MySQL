@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header class="center">
+        
+        <nav>
+            <a class="navb" href="/">Home</a>
+            <a class="navb" href="/createNote">Create Note</a>
+            <a class="navb" href="/notes">Notes</a>
+        </nav>
+        <h1>Notes</h1>
+        <form action="/notes" method="get">
+            <input type="text" name="searchContent" placeholder="Search Note...">
+            <button style="margin-left: 1rem;" type="submit">Search</button>
+        </form>
+    </header>
+    <main class="center">
+        <ul >
+            <% notes.forEach(note => { %>
+                <li class="center"><h1><%= note.title %></h1>
+                <p><%= note.contents.substring(0, 30) %>...</p>
+                <p><%= new Date(note.created)  %></p>
+                <a href="/notes/<%= note.id %>"> view more...</a>
+                %></p>
+                </li>
+            <% }); %>
+            <li></li>
+        </ul>
+    </main>
+</body>
+</html>
