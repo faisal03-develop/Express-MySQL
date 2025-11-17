@@ -1,5 +1,8 @@
 import express from 'express';
 import { deleteNote,getNote, getNotes, createNote } from './database.js';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 const app = express()
 const PORT = 8080;
