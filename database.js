@@ -11,20 +11,32 @@ const pool = mysql.createPool({
 }).promise()
 
 
-async function getNotes() {
+export async function getNotes() {
     const [notes] = await pool.query("SELECT * FROM notes")
     return notes
 }
 
-async function getNNote(id){
-    cons[note] = await pool.query(`
+export async function getNNote(id){
+    const [note] = await pool.query(`
         SELECT * FROM notes
         WHERE id = ?
         `,[id])
         return note;
 }
 
+export async function createNote(title, contents){
+    const [results] = await pool.query(`
+        INSERT INTO notes (title,contents)
+        VALUES (?,?)`,
+    [title,contents])
+    return {
+        id: results.insertId,
+        title,
+        contents
+    }
+}
 
 
-const note = await getNotes(1)
-console.log(note)
+
+const result = await createNote("My note 6", "This is the content of my note 6")
+console.log(result)
